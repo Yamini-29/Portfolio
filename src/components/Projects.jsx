@@ -78,7 +78,7 @@ export default function Projects() {
   const [selectedProject, setSelectedProject] = useState(null);
 
   return (
-    <section id="projects" className="py-28 px-6 bg-neutral-950 text-white">
+    <section id="projects" className="py-28 px-6 bg-black text-white">
 
       <div className="max-w-6xl mx-auto">
 
@@ -95,11 +95,11 @@ export default function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
               onClick={() => setSelectedProject(project)}
-              className="bg-neutral-900 border border-neutral-800 rounded-2xl p-6 cursor-pointer hover:border-purple-500 transition"
+              className="bg-neutral-900 border border-neutral-800 rounded-2xl p-6 cursor-pointer hover:border-sky-500 transition"
             >
 
               {project.badge && (
-                <span className="text-xs text-purple-400">
+                <span className="text-xs text-yellow-400">
                   {project.badge}
                 </span>
               )}

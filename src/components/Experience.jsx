@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useState } from "react";
 
 const experiences = [
   {
@@ -9,120 +10,196 @@ const experiences = [
     logo: "/company/wipro.png",
     role: "Software Engineer",
     duration: "Sept 2025 – Present",
-    highlight: "Enterprise QA Automation Platform",
-    points: [
-      "Developed Genesis automation platform supporting web, mobile, desktop and APIs",
-      "Designed backend services using Python + FastAPI within distributed systems",
-      "Built browser automation and Appium mobile testing pipelines",
-      "Worked with cross-functional teams to refine system architecture"
-    ]
+    year: "2025",
+    impact: [
+      "Built enterprise QA automation platform",
+      "Backend services using FastAPI",
+      "Cross-platform automation (web, mobile, APIs)"
+    ],
+    tech: ["Python", "FastAPI", "Automation"],
   },
   {
     company: "Amazon",
     logo: "/company/amazon.png",
     role: "Software Engineer Intern",
     duration: "Jan 2025 – Jun 2025",
-    highlight: "AWS Infrastructure Migration",
-    points: [
-      "Migrated backend systems JDK8/11 → JDK17 improving CI/CD stability by 15%",
-      "Transitioned data lineage platform (Datanet → Cradle) reducing latency by 30%",
-      "Automated AWS multi-region migration (SFN, SNS, S3)",
-      "Enabled Graviton ARM adoption across 20+ services reducing compute cost by 20%"
-    ]
-  },
-  {
-    company: "Amazon",
-    logo: "/company/amazon.png",
-    role: "Software Engineer Intern",
-    duration: "May 2023 – Jun 2023",
-    highlight: "Financial Dashboard Platform",
-    points: [
-      "Re-architected dashboards for multi-ledger financial analysis",
-      "Integrated REST APIs with React UI improving performance by 25%",
-      "Resolved production data pipeline failures improving reliability"
-    ]
+    year: "2025",
+    impact: [
+      "30% latency reduction in data systems",
+      "20% compute cost reduction via Graviton",
+      "Migrated infrastructure to JDK17"
+    ],
+    tech: ["Java", "AWS", "Distributed Systems"],
   },
   {
     company: "TestAIng Solutions",
     logo: "/company/testaing.png",
     role: "AI/ML Intern",
     duration: "Jun 2024 – Aug 2024",
-    highlight: "AI Model Bias Detection",
-    points: [
-      "Built pipelines to detect bias in machine learning models",
-      "Applied metamorphic testing to improve fairness and robustness"
-    ]
+    year: "2024",
+    impact: [
+      "Built ML bias detection pipelines",
+      "Applied metamorphic testing for robustness",
+      "Improved ML fairness validation"
+    ],
+    tech: ["Python", "Machine Learning", "Testing"],
+  },
+  {
+    company: "Amazon",
+    logo: "/company/amazon.png",
+    role: "Software Engineer Intern",
+    duration: "May 2023 – Jun 2023",
+    year: "2023",
+    impact: [
+      "25% dashboard performance improvement",
+      "Improved financial data workflows",
+      "Resolved production pipeline failures"
+    ],
+    tech: ["React", "Java", "REST APIs"],
   }
 ];
 
 export default function Experience() {
+  
+
+  const [open, setOpen] = useState(null);
+
   return (
-    <section id="experience" className="py-28 px-6 bg-neutral-950 text-white">
+    
+    <section id="experience" className="py-28 px-6 bg-black text-white">
+      
 
       <div className="max-w-5xl mx-auto">
 
-        <h2 className="text-4xl font-bold mb-16">
+        <h2 className="text-3xl font-bold mb-16">
           Experience
         </h2>
+        <div className="mb-20">
 
-        <div className="relative border-l border-neutral-800">
+  <div className="flex items-center justify-between text-sm text-gray-400">
+
+    <div className="text-center">
+      <p className="text-sky-400 font-medium">2023</p>
+      <p>Amazon</p>
+    </div>
+
+    <div className="flex-1 h-px bg-neutral-800 mx-4"></div>
+
+    <div className="text-center">
+      <p className="text-sky-400 font-medium">2024</p>
+      <p>TestAIng Solutions</p>
+    </div>
+
+    <div className="flex-1 h-px bg-neutral-800 mx-4"></div>
+
+    <div className="text-center">
+      <p className="text-sky-400 font-medium">2025</p>
+      <p>Amazon</p>
+    </div>
+
+    <div className="flex-1 h-px bg-neutral-800 mx-4"></div>
+
+    <div className="text-center">
+      <p className="text-sky-400 font-medium">Now</p>
+      <p>Wipro</p>
+    </div>
+
+  </div>
+
+</div>
+
+        <div className="space-y-10">
 
           {experiences.map((exp, index) => (
+
             <motion.div
               key={index}
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
-              className="ml-10 mb-16 relative"
+              className="border border-neutral-800 rounded-xl p-6 bg-neutral-900 hover:border-sky-500 transition"
             >
 
-              {/* timeline dot */}
-              <div className="absolute -left-[26px] top-2 w-5 h-5 bg-purple-500 rounded-full border border-neutral-950"></div>
+              {/* header */}
 
-              <div className="bg-neutral-900 border border-neutral-800 rounded-xl p-6 hover:border-purple-500 transition">
+              <div className="flex items-center gap-4 mb-4">
 
-                {/* header */}
-                <div className="flex items-center gap-4 mb-3">
+                <Image
+                  src={exp.logo}
+                  width={40}
+                  height={40}
+                  alt={exp.company}
+                  className="rounded-md bg-white p-1"
+                />
 
-                  <Image
-                    src={exp.logo}
-                    width={40}
-                    height={40}
-                    alt={exp.company}
-                    className="rounded-md bg-white p-1"
-                  />
+                <div>
 
-                  <div>
+                  <h3 className="font-semibold text-lg">
+                    {exp.role} • <span className="text-sky-400">{exp.company}</span>
+                  </h3>
 
-                    <h3 className="text-lg font-semibold">
-                      {exp.role} • <span className="text-purple-400">{exp.company}</span>
-                    </h3>
-
-                    <p className="text-sm text-gray-400">
-                      {exp.duration}
-                    </p>
-
-                  </div>
+                  <p className="text-sm text-gray-400">
+                    {exp.duration}
+                  </p>
 
                 </div>
 
-                {/* highlight */}
-                <p className="text-purple-400 text-sm mb-3">
-                  {exp.highlight}
-                </p>
+              </div>
 
-                {/* bullets */}
-                <ul className="list-disc list-inside text-gray-400 space-y-1">
+              {/* impact */}
 
-                  {exp.points.map((p, i) => (
-                    <li key={i}>{p}</li>
+              <div className="mb-4">
+
+                {exp.impact.map((i, idx) => (
+
+                  <p key={idx} className="text-gray-300 text-sm">
+                    • {i}
+                  </p>
+
+                ))}
+
+              </div>
+
+              {/* tech stack */}
+
+              <div className="flex flex-wrap gap-2 mb-4">
+
+                {exp.tech.map((t, idx) => (
+
+                  <span
+                    key={idx}
+                    className="px-2 py-1 text-xs bg-neutral-800 rounded-md text-gray-300"
+                  >
+                    {t}
+                  </span>
+
+                ))}
+
+              </div>
+
+              {/* toggle */}
+
+              <button
+                onClick={() => setOpen(open === index ? null : index)}
+                className="text-sm text-sky-400"
+              >
+                {open === index ? "Hide details" : "View details"}
+              </button>
+
+              {open === index && (
+
+                <ul className="mt-4 text-sm text-gray-400 space-y-1">
+
+                  {exp.impact.map((d, i) => (
+                    <li key={i}>• {d}</li>
                   ))}
 
                 </ul>
 
-              </div>
+              )}
 
             </motion.div>
+
           ))}
 
         </div>

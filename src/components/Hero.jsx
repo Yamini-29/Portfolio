@@ -1,104 +1,98 @@
 "use client";
 
 import { motion } from "framer-motion";
-import ParticleBackground from "./ParticleBackground";
 
 export default function Hero() {
+  const containerVars = {
+    initial: { opacity: 0 },
+    animate: { 
+      opacity: 1,
+      transition: { staggerChildren: 0.1, delayChildren: 0.2 }
+    }
+  };
+
+  const itemVars = {
+    initial: { opacity: 0, y: 15 },
+    animate: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
+  };
+
   return (
-    <section className="relative h-screen flex items-center justify-center text-center overflow-hidden pt-20">
-        <ParticleBackground />
-
-      {/* gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-purple-900/10 via-neutral-950 to-neutral-950"></div>
-
-      {/* grid background */}
-      <div className="absolute inset-0 opacity-[0.04]"
-        style={{
-          backgroundImage:
-            "linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(to right, #ffffff 1px, transparent 1px)",
-          backgroundSize: "80px 80px",
-        }}
+    <section className="relative min-h-screen flex items-center justify-center text-center px-6 text-white overflow-hidden bg-black">
+      
+      {/* Background with subtle zoom effect */}
+      <motion.div
+        initial={{ scale: 1.1, opacity: 0 }}
+        animate={{ scale: 1, opacity: 0.4 }}
+        transition={{ duration: 1.5 }}
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: "url('/hero.png')" }}
       />
 
-      {/* glow */}
-      <div className="absolute w-[600px] h-[600px] bg-purple-500/10 blur-3xl rounded-full"></div>
-
-      <div className="relative z-10">
-
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-6xl font-bold mb-4"
+      {/* Content Container */}
+      <motion.div 
+        variants={containerVars}
+        initial="initial"
+        animate="animate"
+        className="relative z-10 max-w-4xl"
+      >
+        {/* Name with tighter tracking */}
+        <motion.h1 
+          variants={itemVars}
+          className="text-5xl md:text-7xl font-bold mb-4 tracking-tighter bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400"
         >
-          <h1 className="text-6xl font-bold mb-4">
-  <span className="gradient-text">Yamini Shree</span>
-</h1>
+          Yamini Shree
         </motion.h1>
-        <p className="text-lg text-gray-400 mb-4">
-  Computer Science Engineer • 
-  <span className="text-purple-400"> IIT Tirupati</span>
-</p>
 
-        <p className="text-xl text-gray-400 mb-8 max-w-xl mx-auto">
-  Building intelligent systems, scalable backend platforms,
-  and AI-powered automation tools.
-</p>
+        {/* Credentials */}
+        <motion.div variants={itemVars} className="flex items-center justify-center gap-2 mb-8 text-lg font-light tracking-wide text-gray-400">
+          <span>Computer Science Engineer</span>
+          <span className="w-1 h-1 bg-sky-500 rounded-full" />
+          <span className="text-sky-400 font-medium">IIT Tirupati</span>
+        </motion.div>
 
-        {/* badges */}
-        
-        <div className="flex flex-wrap justify-center gap-3 mb-10 text-sm">
+        {/* Bio - improved line height */}
+        <motion.p variants={itemVars} className="text-xl md:text-1xl text-gray-300 mb-10 leading-snug max-w-2xl mx-auto">
+          Building <span className="text-white italic">intelligent systems</span>, scalable backend platforms, and AI-powered developer tools.
+        </motion.p>
 
-          <span className="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full">
-            Machine Learning
-          </span>
+        {/* Focus tags with subtle glass effect */}
+        <motion.div variants={itemVars} className="flex flex-wrap justify-center gap-3 mb-12">
+          {["Machine Learning", "Distributed Systems", "Backend Platforms", "LLM Systems"].map((item) => (
+            <span
+              key={item}
+              className="px-4 py-1.5 border border-white/10 bg-white/5 backdrop-blur-md rounded-full text-xs font-medium text-gray-400 hover:border-sky-500/50 hover:text-sky-400 transition-colors duration-300"
+            >
+              {item}
+            </span>
+          ))}
+        </motion.div>
 
-          <span className="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full">
-            Distributed Systems
-          </span>
-
-          <span className="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full">
-            Full Stack
-          </span>
-
-          <span className="px-3 py-1 bg-neutral-900 border border-neutral-800 rounded-full">
-            LLM Systems
-          </span>
-
-        </div>
-
-        {/* buttons */}
-
-        <div className="flex justify-center gap-4">
-
+        {/* Refined Buttons */}
+        <motion.div variants={itemVars} className="flex flex-col sm:flex-row justify-center gap-4">
           <a
             href="#projects"
-            className="px-6 py-3 bg-white text-black rounded-xl font-medium hover:opacity-90"
+            className="px-8 py-3.5 bg-sky-500 hover:bg-sky-400 text-black font-semibold rounded-full transition-all active:scale-95"
           >
             View Projects
           </a>
-
           <a
             href="/resume.pdf"
-            className="px-6 py-3 border border-neutral-700 rounded-xl hover:border-purple-400 transition"
+            className="px-8 py-3.5 border border-white/20 hover:bg-white/10 rounded-full transition-all active:scale-95"
           >
             Resume
           </a>
-
-        </div>
-
-      </div>
-
-      {/* scroll indicator */}
-
-      <motion.div
-        animate={{ y: [0, 10, 0] }}
-        transition={{ repeat: Infinity, duration: 1.6 }}
-        className="absolute bottom-10 text-gray-500"
-      >
-        ↓
+        </motion.div>
       </motion.div>
 
+      {/* Subtle Scroll Indicator */}
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5, duration: 1 }}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-gray-500 text-xs uppercase tracking-widest"
+      >
+        Scroll to explore
+      </motion.div>
     </section>
   );
 }

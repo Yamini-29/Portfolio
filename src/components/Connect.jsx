@@ -5,7 +5,7 @@ import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 export default function Connect() {
   return (
-    <section id="contact" className="py-28 px-6 bg-neutral-950 text-white">
+    <section id="contact" className="py-28 px-6 bg-black text-white">
 
       <div className="max-w-4xl mx-auto text-center">
 
@@ -30,7 +30,7 @@ export default function Connect() {
             href="https://github.com/Yamini-29"
             target="_blank"
             className="bg-neutral-900 border border-neutral-800 rounded-xl p-6
-            hover:border-purple-500 hover:shadow-lg hover:shadow-purple-500/10
+            hover:border-sky-500 hover:shadow-lg hover:shadow-sky-500/10
             transition flex flex-col items-center gap-3"
           >
             <FaGithub size={28} />
@@ -42,7 +42,7 @@ export default function Connect() {
             href="https://linkedin.com/in/yamini-shree-baskar-b04644241"
             target="_blank"
             className="bg-neutral-900 border border-neutral-800 rounded-xl p-6
-            hover:border-purple-500 hover:shadow-lg hover:shadow-purple-500/10
+            hover:border-sky-500 hover:shadow-lg hover:shadow-sky-500/10
             transition flex flex-col items-center gap-3"
           >
             <FaLinkedin size={28} />
@@ -53,7 +53,7 @@ export default function Connect() {
           <a
             href="mailto:yaminishreebaskar@gmail.com"
             className="bg-neutral-900 border border-neutral-800 rounded-xl p-6
-            hover:border-purple-500 hover:shadow-lg hover:shadow-purple-500/10
+            hover:border-sky-500 hover:shadow-lg hover:shadow-sky-500/10
             transition flex flex-col items-center gap-3"
           >
             <FaEnvelope size={28} />
@@ -69,7 +69,7 @@ export default function Connect() {
           <a
   href="/resume.pdf"
   download
-  className="px-6 py-3 border border-neutral-700 rounded-xl hover:border-purple-400 transition"
+  className="px-6 py-3 border border-neutral-700 rounded-xl hover:border-sky-400 transition"
 >
   Download Resume
 </a>

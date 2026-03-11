@@ -4,12 +4,12 @@ import { motion } from "framer-motion";
 
 export default function FeaturedResearch() {
   return (
-    <section id="research" className="py-28 px-6 bg-neutral-950 text-white">
+    <section id="research" className="py-28 px-6 bg-black text-white">
 
       <div className="max-w-6xl mx-auto">
 
         {/* Section Label */}
-        <p className="text-sm text-purple-400 mb-2">
+        <p className="text-sm text-sky-400 mb-2">
           FEATURED RESEARCH
         </p>
 

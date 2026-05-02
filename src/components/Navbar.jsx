@@ -12,9 +12,9 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto flex justify-between items-center px-6 py-4">
 
         {/* Logo */}
-        <h1 className="text-lg font-semibold tracking-wide text-sky-400">
+        <a href="/" className="text-lg font-semibold tracking-wide text-gray-400">
           Yamini
-        </h1>
+        </a>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex gap-8 text-sm text-gray-300">

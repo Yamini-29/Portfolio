@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import AgentCommunication from "./MultiAgentSystem";
 
 export default function FeaturedResearch() {
   return (
@@ -24,13 +25,32 @@ export default function FeaturedResearch() {
         </motion.h2>
 
         {/* Short Description */}
-        <p className="text-gray-400 text-lg leading-relaxed mb-10 max-w-3xl">
-          Built a decentralized multi-agent communication system where agents
-          learn a shared language to describe objects in an environment.
-          The project studies how structured communication protocols can
-          emerge purely through interaction — inspired by the evolution
-          of human language.
-        </p>
+       <div className="grid lg:grid-cols-2 gap-8 items-center mb-16">
+
+  {/* LEFT TEXT */}
+  <div>
+    <p className="text-gray-400 text-lg leading-relaxed">
+      Built a decentralized multi-agent communication system where agents
+      learn a shared language to describe objects in an environment.
+      The project studies how structured communication protocols can
+      emerge purely through interaction — inspired by the evolution
+      of human language.
+    </p>
+  </div>
+
+  {/* RIGHT ANIMATION */}
+  <div className="relative flex justify-center">
+
+    {/* subtle container */}
+    <div className="bg-neutral-900/40  rounded-xl backdrop-blur-sm">
+
+      <AgentCommunication />
+
+    </div>
+
+  </div>
+
+</div>
 
         {/* Info Grid */}
         <div className="grid md:grid-cols-2 gap-10">
@@ -148,6 +168,7 @@ export default function FeaturedResearch() {
 
 </div>
 
+
     
     <div className="bg-neutral-900 border border-neutral-800 p-4 rounded-xl">
 
@@ -165,6 +186,7 @@ export default function FeaturedResearch() {
     className="rounded-lg brightness-90"
   />
 </div>
+
 
 
   </div>

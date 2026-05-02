@@ -58,3 +58,189 @@ body::before {
     background-position: 200% center;
   }
 }
+@keyframes flow {
+  0% {
+    transform: translate(20px, 20px);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(150px, 150px);
+    opacity: 0;
+  }
+}
+
+.animate-flow {
+  animation: flow 3s linear infinite;
+}
+@keyframes flow1 {
+  0% {
+    transform: translate(100px, 30px);
+    opacity: 0;
+  }
+  20% { opacity: 1; }
+  100% {
+    transform: translate(320px, 30px);
+    opacity: 0;
+  }
+}
+
+@keyframes flow2 {
+  0% {
+    transform: translate(100px, 30px);
+    opacity: 0;
+  }
+  20% { opacity: 1; }
+  100% {
+    transform: translate(320px, 30px);
+    opacity: 0;
+  }
+}
+
+.animate-flow1 {
+  animation: flow1 3s linear infinite;
+}
+
+.animate-flow2 {
+  animation: flow2 3s linear infinite 1.5s;
+}
+@keyframes flowRight {
+  0% {
+    transform: translate(80px, 120px);
+    opacity: 0;
+  }
+  20% { opacity: 1; }
+  100% {
+    transform: translate(340px, 120px);
+    opacity: 0;
+  }
+}
+
+@keyframes flowLeft {
+  0% {
+    transform: translate(340px, 120px);
+    opacity: 0;
+  }
+  20% { opacity: 1; }
+  100% {
+    transform: translate(80px, 120px);
+    opacity: 0;
+  }
+}
+
+.animate-flow-right {
+  animation: flowRight 3s linear infinite;
+}
+
+.animate-flow-left {
+  animation: flowLeft 3s linear infinite 1.5s;
+}
+
+/* soft pulse */
+
+@keyframes pulseSoft {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+.animate-pulse-soft {
+  animation: pulseSoft 2s ease-in-out infinite;
+}
+
+.card {
+  @apply bg-neutral-900 border border-neutral-800 rounded-xl p-6
+  hover:border-sky-500 hover:shadow-lg hover:shadow-sky-500/10
+  transition flex flex-col items-center gap-3;
+}
+
+.label {
+  @apply text-sm text-gray-400;
+}
+
+.panel {
+  @apply bg-neutral-900/40 border border-neutral-800 rounded-xl p-6 backdrop-blur-sm;
+}
+
+.chat-box {
+  @apply h-56 overflow-y-auto text-sm space-y-2;
+}
+
+.pill {
+  @apply px-3 py-1 text-sm border border-neutral-700 rounded-full
+  hover:border-sky-400 transition;
+}
+
+.task {
+  @apply bg-neutral-900 border border-neutral-800 p-3 rounded-lg transition;
+}
+
+.task.highlight {
+  @apply border-sky-400 shadow shadow-sky-400/20;
+}
+
+.toast {
+  @apply fixed bottom-6 right-6 bg-neutral-900 border border-sky-500
+  px-4 py-2 rounded-lg text-sm shadow-lg;
+}
+
+/* typing dots */
+.dot {
+  width: 6px;
+  height: 6px;
+  background: #38bdf8;
+  border-radius: 50%;
+  animation: blink 1.4s infinite both;
+}
+
+.dot.delay-100 {
+  animation-delay: 0.2s;
+}
+
+.dot.delay-200 {
+  animation-delay: 0.4s;
+}
+
+@keyframes blink {
+  0%, 80%, 100% { opacity: 0.2; }
+  40% { opacity: 1; }
+}
+.glass-panel {
+  @apply bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6;
+}
+
+.chat-bubble {
+  @apply bg-neutral-900 border border-neutral-700 px-4 py-2 rounded-xl text-sm relative;
+}
+
+.timestamp {
+  @apply text-[10px] text-gray-500 ml-2;
+}
+
+.typing span {
+  width: 6px;
+  height: 6px;
+  background: #38bdf8;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 4px;
+  animation: blink 1.4s infinite;
+}
+
+.input {
+  @apply flex-1 bg-neutral-900 border border-neutral-700 rounded-lg px-3 py-2 text-sm;
+}
+
+.send-btn {
+  @apply px-4 py-2 bg-sky-500 text-black rounded-lg hover:opacity-90;
+}
+
+.task-card {
+  @apply bg-neutral-900 border border-neutral-800 p-4 rounded-xl
+  hover:border-sky-400 transition;
+}
+
+.section-label {
+  @apply text-xs text-gray-500 mb-3 uppercase tracking-wide;
+}

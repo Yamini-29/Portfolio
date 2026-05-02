@@ -1,6 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
+import AboutInteractive from "@/components/AboutVSCode";
+
 
 export default function About() {
 
@@ -28,7 +30,7 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="py-28 px-6 bg-black text-white">
+    <section id="about" className="pt-10 pb-28 py-4 px-6 bg-black text-white">
 
       <div className="max-w-5xl mx-auto">
 
@@ -42,6 +44,8 @@ export default function About() {
         >
           About
         </motion.h2>
+         <AboutInteractive />
+        
 
         {/* Description */}
 
